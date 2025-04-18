@@ -23,3 +23,11 @@ jobs:
       - name: Build et run tests avec jacoco
         working-directory: back
         run: mvn clean verify
+
+      - name: Upload le report de jacoco
+        #pour générer rapport même si ça plante
+        if: always() 
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report-backend
+          path: back/target/site/jacoco
