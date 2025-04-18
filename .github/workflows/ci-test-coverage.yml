@@ -78,7 +78,8 @@ jobs:
             - name: Analyse Sonarcloud
               uses: SonarSource/sonarcloud-github-action@v2.0.2
               with: 
-                organization: fhlabarbe
-                projectKey: FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+                args: >
+                    -Dsonar.organization=fhlabarbe
+                    -Dsonar.projectKey=FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
