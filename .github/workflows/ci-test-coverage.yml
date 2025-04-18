@@ -67,7 +67,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
               with:
-                fetch_depth: 0
+                fetch-depth: 0
 
             - name: Setup Java
               uses: actions/setup-java@v4
@@ -81,5 +81,6 @@ jobs:
                 args: >
                     -Dsonar.organization=fhlabarbe
                     -Dsonar.projectKey=FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+                    -Dsonar.java.binaries=back/target/classes
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
