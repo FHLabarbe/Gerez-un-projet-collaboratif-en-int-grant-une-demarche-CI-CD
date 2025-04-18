@@ -46,3 +46,6 @@ jobs:
             - name: Add dependencies
               working-directory: front
               run : npm ci
+            
+            - name: Tests angular
+              run: ng test
