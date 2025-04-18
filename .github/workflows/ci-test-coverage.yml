@@ -48,4 +48,5 @@ jobs:
               run : npm ci
             
             - name: Tests angular
+              working-directory: front
               run: npm run test -- --watch=false --browsers=ChromeHeadless
