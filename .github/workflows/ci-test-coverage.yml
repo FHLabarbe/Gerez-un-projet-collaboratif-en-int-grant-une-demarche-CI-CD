@@ -75,12 +75,16 @@ jobs:
                 distribution: 'adopt'
                 java-version: '11'
 
+            - name: Build backend
+              working-directory: back
+              run: mvn clean install -DskipTests
+
             - name: Analyse Sonarcloud
               uses: SonarSource/sonarcloud-github-action@v2.0.2
               with: 
                 args: >
                     -Dsonar.organization=fhlabarbe
                     -Dsonar.projectKey=FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-                    -Dsonar.java.binaries=back/target/classes
+                    -Dsonar.java.binaries=back/target/classes/
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
