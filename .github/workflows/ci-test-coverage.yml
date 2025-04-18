@@ -48,4 +48,4 @@ jobs:
               run : npm ci
             
             - name: Tests angular
-              run: ng test
+              run: npm run test
