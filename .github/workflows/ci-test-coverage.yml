@@ -19,3 +19,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
+
+      - name: Build et run tests avec jacoco
+        working-directory: back
+        run: mvn clean verify
