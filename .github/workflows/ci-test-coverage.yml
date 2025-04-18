@@ -46,7 +46,14 @@ jobs:
             - name: Add dependencies
               working-directory: front
               run : npm ci
-            
+
             - name: Tests angular
               working-directory: front
               run: npm run test -- --watch=false --browsers=ChromeHeadless
+              
+            - name: Upload rapport coverage angular
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                name: angular-coverage-report
+                path: front/coverage
