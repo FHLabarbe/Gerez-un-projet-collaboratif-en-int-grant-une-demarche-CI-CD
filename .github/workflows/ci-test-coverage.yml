@@ -76,9 +76,9 @@ jobs:
                 java-version: '11'
 
             - name: Analyse Sonarcloud
-              uses: SonarSource/sonarcloud-github-actions@v2.0.2
+              uses: SonarSource/sonarcloud-github-action@v2.0.2
               with: 
                 organization: fhlabarbe
-                projectKey: sonar-token-bobapp
+                projectKey: FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
