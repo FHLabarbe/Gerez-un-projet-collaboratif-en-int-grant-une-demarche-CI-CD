@@ -57,3 +57,28 @@ jobs:
               with:
                 name: angular-coverage-report
                 path: front/coverage/bobapp
+
+    sonarqube:
+        name: Analyse qualité avec Sonarcloud
+        runs-on: ubuntu-latest
+        #On attend que les tests soient fini avant de lancer l'analyse
+        needs: [backend-tests, frontend-tests]
+        steps: 
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                fetch_depth: 0
+
+            - name: Setup Java
+              uses: actions/setup-java@v4
+              with:
+                distribution: 'adopt'
+                java-version: '11'
+
+            - name: Analyse Sonarcloud
+              uses: SonarSource/sonarcloud-github-actions@v4.0.0
+              with: 
+                organization: fhlabarbe
+                projectKey: sonar-token-bobapp
+              env: 
+                SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
