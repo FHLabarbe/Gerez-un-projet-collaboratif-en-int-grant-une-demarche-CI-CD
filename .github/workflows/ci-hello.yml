@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Dire bonjour
-        run: echo "👋 Hello, BobApp CI est en place !"
+        run: echo "Hello, BobApp CI est en place !"
