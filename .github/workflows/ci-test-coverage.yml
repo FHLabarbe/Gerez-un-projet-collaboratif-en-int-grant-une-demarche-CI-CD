@@ -81,16 +81,5 @@ jobs:
 
             - name: Analyse Sonarcloud
               uses: SonarSource/sonarcloud-github-action@v2.0.2
-              with: 
-                args: >
-                    -Dsonar.organization=fhlabarbe
-                    -Dsonar.projectKey=FHLabarbe_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-                    -Dsonar.java.binaries=back/target/classes
-                    -Dsonar.sources=back/src/main/java,front/src
-                    -Dsonar.exclusions=**/*.spec.ts
-                    -Dsonar.tests=front/src
-                    -Dsonar.test.inclusions=**/*.spec.ts
-                    -Dsonar.javascript.lcov.reportPaths=front/coverage/bobapp/lcov.info
-                    -Dsonar.coverage.jacoco.xmlReportPaths=back/target/site/jacoco/jacoco.xml
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
