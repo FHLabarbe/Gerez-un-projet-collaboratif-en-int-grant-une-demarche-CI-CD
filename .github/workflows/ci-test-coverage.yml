@@ -102,4 +102,9 @@ jobs:
             run: |
               docker build -t ${{secrets.DOCKER_USERNAME}}/bobapp-backend ./back
               docker push ${{secrets.DOCKER_PASSWORD}}/bobapp-backend
+
+          - name: Build & push front-end
+            run: |
+              docker build -t ${{secrets.DOCKER_USERNAME}}/bobapp-frontend ./front
+              docker push ${{secrets.DOCKER_PASSWORD}}/bobapp-frontend
         
