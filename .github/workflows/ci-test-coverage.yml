@@ -88,6 +88,8 @@ jobs:
         name: Déploiement sur Docker Hub
         runs-on: ubuntu-latest
         needs: [backend-tests, frontend-tests, sonarqube]
+        env: 
+          DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
         steps: 
           - name: Checkout
             uses: actions/checkout@v4
@@ -100,15 +102,15 @@ jobs:
 
           - name: Debug nom d'image
             run: |
-              echo "Image name: ${{ secrets.DOCKER_USERNAME }}/bobapp-backend"
+              echo "Image name: $DOCKER_USER/bobapp-backend"
           
           - name: Build & push back-end
             run: |
-              docker build -t ${{secrets.DOCKER_USERNAME}}/bobapp-backend ./back
-              docker push ${{secrets.DOCKER_PASSWORD}}/bobapp-backend
+              docker build -t $DOCKER_USER/bobapp-backend ./back
+              docker push $DOCKER_USER/bobapp-backend
 
           - name: Build & push front-end
             run: |
-              docker build -t ${{secrets.DOCKER_USERNAME}}/bobapp-frontend ./front
-              docker push ${{secrets.DOCKER_PASSWORD}}/bobapp-frontend
+              docker build -t $DOCKER_USER/bobapp-frontend ./front
+              docker push $DOCKER_USER/bobapp-frontend
         
