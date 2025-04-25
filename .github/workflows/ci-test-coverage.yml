@@ -100,6 +100,6 @@ jobs:
           
           - name: Build & push back-end
             run: |
-              docker-build -t ${{secrets.DOCKER_USERNAME}}/bobapp-backend ./back
+              docker build -t ${{secrets.DOCKER_USERNAME}}/bobapp-backend ./back
               docker push ${{secrets.DOCKER_PASSWORD}}/bobapp-backend
         
