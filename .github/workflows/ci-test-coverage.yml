@@ -70,13 +70,13 @@ jobs:
                 fetch-depth: 0
 
             - name: Download jacoco report
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4
               with:
                 name: jacoco-report-backend
                 path: back/target/site/jacoco
 
             - name: Download angular coverage report
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4
               with:
                 name: angular-coverage-report
                 path: front/coverage/bobapp
