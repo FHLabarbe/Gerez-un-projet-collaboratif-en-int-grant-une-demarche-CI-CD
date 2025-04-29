@@ -81,6 +81,8 @@ jobs:
 
             - name: Analyse Sonarcloud
               uses: SonarSource/sonarcloud-github-action@v2.0.2
+              with:
+                projectBaseDir: .
               env: 
                 SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
 
@@ -99,10 +101,6 @@ jobs:
             with: 
               username: ${{secrets.DOCKER_USERNAME}}
               password: ${{secrets.DOCKER_PASSWORD}}
-
-          - name: Debug nom d'image
-            run: |
-              echo "Image name: $DOCKER_USER/bobapp-backend"
           
           - name: Build & push back-end
             run: |
